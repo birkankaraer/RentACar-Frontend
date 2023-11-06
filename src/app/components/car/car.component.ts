@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from 'src/app/models/car';
-import { HttpClient } from "@angular/common/http"
+import { CarDetail } from 'src/app/models/car-detail';
+
 import { CarResponseModel } from 'src/app/models/carResponseModel';
+import { CarDetailService } from 'src/app/services/car-detail.service';
+import { CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-car',
@@ -10,20 +13,32 @@ import { CarResponseModel } from 'src/app/models/carResponseModel';
 })
 export class CarComponent implements OnInit {
 
- cars:Car[]=[];
- apiUrl="https://localhost:44329/api/cars/getall";
+ cars:Car[]= [];
+ cardetails:CarDetail[]=[];
+ dataLoaded = false;
 
- constructor(private httpClient:HttpClient){}
+
+ constructor(
+  private carService:CarService,
+  private cardetailService:CarDetailService
+  ){}
 
  ngOnInit(): void {
-  this.getCars();
+  this.getAllCars();
 }
 
-getCars(){
-  this.httpClient.get<CarResponseModel>(this.apiUrl).subscribe((response)=>{
-    this.cars=response.data
-  });
+getCars() {
+  this.carService.getCars().subscribe(response=>{
+    this.cars = response.data
+    this.dataLoaded = true;
+  })
+}
 
+getAllCars(){
+ this.cardetailService.getAllCars().subscribe(response=>{
+  this.cardetails = response.data
+  this.dataLoaded = true;
+ })
 }
 
 }
