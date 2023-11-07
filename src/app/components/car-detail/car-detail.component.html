@@ -1,1 +1,72 @@
-<p>car-detail works!</p>
+<div class="row mt-4" style="margin-left: 1%">
+  <div
+    *ngFor="let carDetail of cardetails"
+    class="card mt-2 mr-2"
+    style="width: 32rem; margin-right: 10px"
+  >
+
+      <img
+        *ngIf="carDetail.imagePath"
+        [src]="baseUrl + carDetail.imagePath"
+        class="card-img-top"
+        style="object-fit: cover"
+        width="100"
+        height="50%"
+      />
+
+      <img
+        *ngIf="!carDetail.imagePath"
+        src="/assets/defaultCar.jpg"
+        class="card-img-top"
+        style="object-fit: cover"
+        width="100"
+        height="50%"
+      />
+
+
+    <div class="card-body">
+      <h4 class="cart-title">
+        {{carDetail.brandName + " " + carDetail.carName}}
+      </h4>
+    </div>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <i><b>Günlük ücreti - </b></i>{{ carDetail.dailyPrice }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Renk - </b></i>{{ carDetail.colorName }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Marka - </b></i>{{ carDetail.brandName }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Model - </b></i>{{ carDetail.carName }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Detay - </b></i>{{ carDetail.description }}
+      </li>
+    </ul>
+
+    <div class="card-body">
+      <div class="row">
+        <button
+          type="button"
+          class="btn btn-success"
+
+
+        >
+          Aracı Kirala
+        </button>
+        <!-- <h5 *ngIf="currentCarDetail">{{currentCarDetail.brandName}} seçtiniz</h5> -->
+        <!-- <button
+          type="button"
+          class="btn btn-success"
+          (click)="directImageAdd(carDetail.carId)"
+        >
+          Araca Resim Yukle
+        </button> -->
+      </div>
+    </div>
+  </div>
+</div>

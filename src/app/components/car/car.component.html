@@ -1,25 +1,68 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
-  <span class="visually-hidden">Loading...</span>
+<div class="row mt-4" style="margin-left: 1%">
+  <div
+    *ngFor="let carDetail of cardetails"
+    class="card mt-2 mr-2"
+    style="width: 18rem; margin-right: 10px"
+  >
+
+      <img
+        *ngIf="carDetail.imagePath"
+        [src]="baseUrl + carDetail.imagePath"
+        class="card-img-top"
+        style="object-fit: cover"
+        width="100"
+        height="50%"
+      />
+
+      <img
+        *ngIf="!carDetail.imagePath"
+        src="/assets/defaultCar.jpg"
+        class="card-img-top"
+        style="object-fit: cover"
+        width="100"
+        height="50%"
+      />
+
+
+    <div class="card-body">
+      <h4 class="cart-title">
+        {{carDetail.brandName + " " + carDetail.carName}}
+      </h4>
+    </div>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <i><b>Gunluk Ucreti | </b></i>{{ carDetail.dailyPrice }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Renk | </b></i>{{ carDetail.colorName }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Marka | </b></i>{{ carDetail.brandName }}
+      </li>
+    </ul>
+
+    <div class="card-body">
+      <div class="row">
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="setCurrentCarDetails(carDetail)"
+          routerLink="/cardetails/car/{{carDetail.carId}}"
+          [class]="getCurrentCarDetails()"
+
+        >
+          Araç Detayı
+        </button>
+        <!-- <h5 *ngIf="currentCarDetail">{{currentCarDetail.brandName}} seçtiniz</h5> -->
+        <!-- <button
+          type="button"
+          class="btn btn-success"
+          (click)="directImageAdd(carDetail.carId)"
+        >
+          Araca Resim Yukle
+        </button> -->
+      </div>
+    </div>
+  </div>
 </div>
-<table *ngIf="dataLoaded==true" class="table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>BrandName</th>
-      <th>CarName</th>
-      <th>ColorName</th>
-      <th>ModelYear</th>
-      <th>DailyPrice</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tr *ngFor="let cardetail of cardetails">
-    <td>{{cardetail.carId}}</td>
-    <td>{{cardetail.brandName}}</td>
-    <td>{{cardetail.carName}}</td>
-    <td>{{cardetail.colorName}}</td>
-    <td>{{cardetail.modelYear}}</td>
-    <td>{{cardetail.dailyPrice}}</td>
-    <td>{{cardetail.description}}</td>
-  </tr>
-</table>
