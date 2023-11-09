@@ -11,6 +11,7 @@ export class BrandComponent implements OnInit {
 
   brands : Brand[] = [];
   currentBrand : Brand;
+  filterBrandText="";
 
   constructor(private brandService:BrandService){}
 

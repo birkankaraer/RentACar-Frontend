@@ -1,8 +1,16 @@
+<br>
+<div class="mb-3">
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Araç, marka, renk adı veya model yılı ile arayınız">
+</div>
+<div class="alert alert-primary" *ngIf="filterText.length>1">
+  {{filterText}} aradınız
+</div>
 <div class="row mt-4" style="margin-left: 1%">
   <div
-    *ngFor="let carDetail of cardetails"
+    *ngFor="let carDetail of cardetails | filterPipe:filterText"
     class="card mt-2 mr-2"
     style="width: 18rem; margin-right: 10px"
+
   >
 
       <img
@@ -26,19 +34,22 @@
 
     <div class="card-body">
       <h4 class="cart-title">
-        {{carDetail.brandName + " " + carDetail.carName}}
+        {{carDetail.brandName + " " + carDetail.carName | uppercase}}
       </h4>
     </div>
 
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
-        <i><b>Gunluk Ucreti | </b></i>{{ carDetail.dailyPrice }}
+        <i><b>Marka | </b></i>{{ carDetail.brandName }}
       </li>
       <li class="list-group-item">
         <i><b>Renk | </b></i>{{ carDetail.colorName }}
       </li>
       <li class="list-group-item">
-        <i><b>Marka | </b></i>{{ carDetail.brandName }}
+        <i><b>Günlük ücreti | </b></i>{{ carDetail.dailyPrice | currency: "TRY":"₺":"4.2-2" }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Kdv'li günlük ücreti | </b></i>{{ carDetail.dailyPrice | vatAdded:10 | currency: "TRY":"₺":"4.2-2"}}
       </li>
     </ul>
 

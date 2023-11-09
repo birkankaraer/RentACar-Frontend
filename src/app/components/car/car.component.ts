@@ -17,6 +17,7 @@ export class CarComponent implements OnInit {
  currentCarDetail: CarDetail;
  dataLoaded = false;
  baseUrl="https://localhost:44329/uploads/images/";
+ filterText="";
 
 
  constructor(

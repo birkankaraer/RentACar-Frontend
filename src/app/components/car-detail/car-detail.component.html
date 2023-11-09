@@ -32,9 +32,6 @@
 
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
-        <i><b>Günlük ücreti - </b></i>{{ carDetail.dailyPrice }}
-      </li>
-      <li class="list-group-item">
         <i><b>Renk - </b></i>{{ carDetail.colorName }}
       </li>
       <li class="list-group-item">
@@ -45,6 +42,12 @@
       </li>
       <li class="list-group-item">
         <i><b>Detay - </b></i>{{ carDetail.description }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Günlük ücreti | </b></i>{{ carDetail.dailyPrice | currency: "TRY":"₺":"4.2-2" }}
+      </li>
+      <li class="list-group-item">
+        <i><b>Kdv'li günlük ücreti | </b></i>{{ carDetail.dailyPrice | vatAdded:10 | currency: "TRY":"₺":"4.2-2"}}
       </li>
     </ul>
 
