@@ -5,6 +5,7 @@
 <div class="alert alert-primary" *ngIf="filterText.length>1">
   {{filterText}} aradınız
 </div>
+<app-car-filter></app-car-filter>
 <div class="row mt-4" style="margin-left: 1%">
   <div
     *ngFor="let carDetail of cardetails | filterPipe:filterText"
@@ -65,14 +66,6 @@
         >
           Araç Detayı
         </button>
-        <!-- <h5 *ngIf="currentCarDetail">{{currentCarDetail.brandName}} seçtiniz</h5> -->
-        <!-- <button
-          type="button"
-          class="btn btn-success"
-          (click)="directImageAdd(carDetail.carId)"
-        >
-          Araca Resim Yukle
-        </button> -->
       </div>
     </div>
   </div>

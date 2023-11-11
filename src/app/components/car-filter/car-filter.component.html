@@ -1,0 +1,22 @@
+<div class="container" style="margin-top: 1cm;" *ngIf="isDataLoaded==true">
+  <div class="row">
+      <div class="col">
+          <label for="brandFilter" class="form-label">Markalar</label>
+          <select class="form-select" id="brandFilter" aria-label="Default select example"
+              [(ngModel)]="selectedBrandId">
+              <option *ngFor="let brand of brands" value="{{brand.brandId}}">{{brand.brandName}}</option>
+          </select>
+      </div>
+      <div class="col">
+          <label for="colorFilter" class="form-label">Renkler</label>
+          <select class="form-select" id="colorFilter" aria-label="Default select example"
+              [(ngModel)]="selectedColorId">
+              <option *ngFor="let color of colors" value="{{color.colorId}}">{{color.colorName}}</option>
+          </select>
+      </div>
+      <div class="col" style="margin-top: 0.8cm;">
+          <button type="submit" [class]="changeButtonClass()" [routerLink]="changeRouteLink()">Filtrele</button>
+          <button type="submit" class="btn btn-success" style="margin-left: 10%;" routerLink="">Temizle</button>
+      </div>
+  </div>
+</div>

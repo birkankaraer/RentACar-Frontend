@@ -1,0 +1,10 @@
+<li *ngIf="cartItems" class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Sepetiniz
+  </a>
+  <ul class="dropdown-menu">
+    <li *ngFor="let cartItem of cartItems" ><a class="dropdown-item" >{{cartItem.carDetail.brandName+" "+cartItem.carDetail.carName}}</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" >Sepete git</a></li>
+  </ul>
+</li>
