@@ -1,41 +1,44 @@
-<br>
+<br />
 <div class="mb-3">
-  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Araç, marka, renk adı veya model yılı ile arayınız">
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="Araç, marka, renk adı veya model yılı ile arayınız"
+  />
 </div>
-<div class="alert alert-primary" *ngIf="filterText.length>1">
-  {{filterText}} aradınız
+<div class="alert alert-primary" *ngIf="filterText.length > 1">
+  {{ filterText }} aradınız
 </div>
 <app-car-filter></app-car-filter>
 <div class="row mt-4" style="margin-left: 1%">
   <div
-    *ngFor="let carDetail of cardetails | filterPipe:filterText"
+    *ngFor="let carDetail of cardetails | filterPipe : filterText"
     class="card mt-2 mr-2"
     style="width: 18rem; margin-right: 10px"
-
   >
+    <img
+      *ngIf="carDetail.imagePath"
+      [src]="baseUrl + carDetail.imagePath"
+      class="card-img-top"
+      style="object-fit: cover"
+      width="100"
+      height="50%"
+    />
 
-      <img
-        *ngIf="carDetail.imagePath"
-        [src]="baseUrl + carDetail.imagePath"
-        class="card-img-top"
-        style="object-fit: cover"
-        width="100"
-        height="50%"
-      />
-
-      <img
-        *ngIf="!carDetail.imagePath"
-        src="/assets/defaultCar.jpg"
-        class="card-img-top"
-        style="object-fit: cover"
-        width="100"
-        height="50%"
-      />
-
+    <img
+      *ngIf="!carDetail.imagePath"
+      src="/assets/defaultCar.jpg"
+      class="card-img-top"
+      style="object-fit: cover"
+      width="100"
+      height="50%"
+    />
 
     <div class="card-body">
       <h4 class="cart-title">
-        {{carDetail.brandName + " " + carDetail.carName | uppercase}}
+        {{ carDetail.brandName + " " + carDetail.carName | uppercase }}
       </h4>
     </div>
 
@@ -47,10 +50,16 @@
         <i><b>Renk | </b></i>{{ carDetail.colorName }}
       </li>
       <li class="list-group-item">
-        <i><b>Günlük ücreti | </b></i>{{ carDetail.dailyPrice | currency: "TRY":"₺":"4.2-2" }}
+        <i><b>Günlük ücreti | </b></i
+        >{{ carDetail.dailyPrice | currency : "TRY" : "₺" : "4.2-2" }}
       </li>
       <li class="list-group-item">
-        <i><b>Kdv'li günlük ücreti | </b></i>{{ carDetail.dailyPrice | vatAdded:10 | currency: "TRY":"₺":"4.2-2"}}
+        <i><b>Kdv'li günlük ücreti | </b></i
+        >{{
+          carDetail.dailyPrice
+            | vatAdded : 10
+            | currency : "TRY" : "₺" : "4.2-2"
+        }}
       </li>
     </ul>
 
@@ -60,9 +69,8 @@
           type="button"
           class="btn btn-success"
           (click)="setCurrentCarDetails(carDetail)"
-          routerLink="/cardetails/car/{{carDetail.carId}}"
+          routerLink="/cardetails/car/{{ carDetail.carId }}"
           [class]="getCurrentCarDetails()"
-
         >
           Araç Detayı
         </button>
