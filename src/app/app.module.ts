@@ -23,6 +23,8 @@ import { CarFilterComponent } from './components/car-filter/car-filter.component
 import { ToastrModule } from 'ngx-toastr';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { PayWithSavedCardsComponent } from './components/pay-with-saved-cards/pay-with-saved-cards.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { CartDetailComponent } from './components/cart-detail/cart-detail.compon
     FilterColorPipePipe,
     CarFilterComponent,
     CartSummaryComponent,
-    CartDetailComponent
+    CartDetailComponent,
+    PaymentComponent,
+    PayWithSavedCardsComponent
   ],
   imports: [
     BrowserModule,

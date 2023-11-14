@@ -5,6 +5,6 @@ export interface Rental{
   modelFullName:string;
   customerFullName:string;
   rentDate:Date;
-  returnDate:Date;
+  returnDate?:Date;
   dailyPrice:number;
 }

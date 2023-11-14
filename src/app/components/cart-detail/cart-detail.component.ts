@@ -50,9 +50,4 @@ export class CartDetailComponent implements OnInit {
 
   }
 
-  confirmCart(){
-
-  }
-
-
 }
