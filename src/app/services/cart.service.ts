@@ -3,6 +3,9 @@ import { ToastrService } from 'ngx-toastr';
 import { CartItems } from '../models/cartItems';
 import { CartItem } from '../models/cartItem';
 import { CarDetail } from '../models/car-detail';
+import { HttpClient } from '@angular/common/http';
+import { ListResponseModel } from '../models/listResponseModel';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -10,8 +13,11 @@ import { CarDetail } from '../models/car-detail';
 })
 export class CartService {
 
+  apiUrl="https://localhost:44329/api/";
+
   constructor(
     private toastrService:ToastrService,
+    private httpClient:HttpClient
     ) { }
 
   addToCart(cardetail:CarDetail){
@@ -36,5 +42,12 @@ export class CartService {
   list():CartItem[]{
     return CartItems;
   }
+
+  getCarDetails(carId:number):Observable<ListResponseModel<CarDetail>>{
+    let newPath=this.apiUrl + "Cars/getcardetailsid?carId="+carId
+    return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
+  }
+
+
 
 }

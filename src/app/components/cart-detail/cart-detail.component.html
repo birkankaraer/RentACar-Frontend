@@ -1,1 +1,70 @@
-<p>cart-detail works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Marka</th>
+      <th>Model</th>
+      <th>Açıklama</th>
+      <th>Toplam tutar</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let cartItem of cartItems">
+    <td><img
+      *ngIf="cartItem.carDetail.imagePath"
+      [src]="baseUrl + cartItem.carDetail.imagePath"
+      class="car-icon"
+      style="object-fit: cover"
+      width="200"
+      height="100%"
+    />
+
+    <img
+      *ngIf="!cartItem.carDetail.imagePath"
+      src="/assets/defaultCar.jpg"
+      class="car-icon"
+      style="object-fit: cover"
+      width="200"
+      height="100%"
+    /></td>
+    <td>{{cartItem.carDetail.brandName}}</td>
+    <td>{{cartItem.carDetail.carName}}</td>
+    <td>{{cartItem.carDetail.description}}</td>
+    <td>{{cartItem.totalamount | currency: "TRY":"₺":"4.2-2"}}</td>
+  </tr>
+</table>
+
+<div class="card-body">
+  <h5 class="card-title">Sipariş Özeti</h5>
+  <p class="card-text">
+  <ul class="list-group">
+      <li class="list-group-item border border-light">
+          <small>
+              <span class="float-start">Toplam kiralanan araç sayısı:</span>
+              <span class="float-end"><strong>{{cartItems.length}} araç</strong></span>
+          </small>
+      </li>
+      <!-- <li class="list-group-item border border-light">
+          <small>
+              <span class="float-start">Toplam kiralama süresi: </span>
+              <span class="float-end">
+                  <strong>
+                  </strong>
+              </span>
+          </small>
+      </li> -->
+      <li *ngFor="let cartItem of cartItems" class="list-group-item border border-light">
+          <small>
+              <span class="float-start">Ödenecek tutar: </span>
+          </small>
+          <span class="float-end text-danger">
+              <strong>{{cartItem.totalamount}}₺</strong>
+          </span>
+      </li>
+      <li class="list-group border border-light"><br>
+        <span class="d-flex flex-column float-end">
+            <a (click)="confirmCart()" class="btn btn-success">Sepeti Onayla</a>
+        </span>
+    </li>
+  </ul>
+</div>
+

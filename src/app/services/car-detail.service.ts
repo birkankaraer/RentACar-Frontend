@@ -15,7 +15,6 @@ export class CarDetailService {
 
   getAllCars():Observable<ListResponseModel<CarDetail>>{
     return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiUrl)
-
   }
 
 }

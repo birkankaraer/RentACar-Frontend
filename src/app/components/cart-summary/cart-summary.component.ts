@@ -14,6 +14,7 @@ export class CartSummaryComponent implements OnInit {
 
   cartItems:CartItem[]=[];
   itemLoaded :boolean;
+  currentCart:CartItem;
 
 
   constructor(private cartService:CartService, private toastrService:ToastrService){}
@@ -32,5 +33,13 @@ export class CartSummaryComponent implements OnInit {
       progressBar:true
     })
   }
+
+  setCurrentCart(cartItems:CartItem){
+    this.currentCart = cartItems;
+  }
+
+
+
+
 
 }

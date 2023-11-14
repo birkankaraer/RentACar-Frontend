@@ -8,8 +8,10 @@
       {{cartItem.carDetail.brandName+" "+cartItem.carDetail.carName}}
       <span class="badge text-bg-success">{{cartItem.totalamount | currency: "TRY":"₺":"4.2-2"}}</span><br><br><button (click)="removeFromCart(cartItem.carDetail)" type="button" class="btn btn-danger btn-sm">Sepetten sil</button></a>
     </li>
-
-    <li><hr class="dropdown-divider"></li>
-    <li ><a class="dropdown-item" >Sepete git</a></li>
+    <li ><hr class="dropdown-divider"></li>
+    <li *ngFor="let cartItem of cartItems" (click)="setCurrentCart(cartItem)" routerLink="/carDetail/cartItem/{{cartItem.carDetail.carId}}">
+      <a class="dropdown-item" >Sepete git</a></li>
   </ul>
 </li>
+
+
