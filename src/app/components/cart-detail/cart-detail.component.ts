@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CarDetail } from 'src/app/models/car-detail';
 import { CartItem } from 'src/app/models/cartItem';
 import { CartItems } from 'src/app/models/cartItems';
@@ -22,7 +23,8 @@ export class CartDetailComponent implements OnInit {
   constructor(private cardetailService:CarDetailService,
     private carService:CarService,
     private activatedRoute:ActivatedRoute,
-    private cartService:CartService
+    private cartService:CartService,
+    private toastrService:ToastrService
     ){}
 
   ngOnInit(): void {
@@ -49,5 +51,19 @@ export class CartDetailComponent implements OnInit {
     }
 
   }
+
+  removeFromCart(cardetail:CarDetail){
+    this.cartService.removeFromCart(cardetail);
+    this.toastrService.error(cardetail.brandName+" "+cardetail.carName +" "+"Sepetten Silindi","",{
+      progressBar:true
+    })
+  }
+
+  gotopay(){
+    this.toastrService.info("Ödeme sayfasına yönlendirildiniz","",{
+      progressBar:true
+    })
+  }
+
 
 }

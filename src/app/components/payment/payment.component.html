@@ -1,13 +1,11 @@
 <br>
 <div class="payment">
   <div>
-      <app-pay-with-saved-cards></app-pay-with-saved-cards>
   </div>
-  <hr>
   <div class="mt-4">
       <form [formGroup]="payFormGroup">
         <img
-      src="/assets/carddefault.png"
+      src="/assets/creditcard.png"
       class="rounded mx-auto d-block"
       style="object-fit: cover"
       width="400"
@@ -16,29 +14,28 @@
 
           <div>
               <label for="fullName">Kart Üzerindeki İsim</label>
-              <input type="text" id="fullName" placeholder="George Tan" class="form-control"
+              <input type="text" id="fullName" placeholder="YOUR NAME" class="form-control"
                   formControlName="fullName">
           </div>
           <div class="mt-2">
               <label for="cardNumber">Kart Numarası</label>
-              <input type="text" id="cardNumber" placeholder="4628 4500 3888 8888" class="form-control"
+              <input type="text" id="cardNumber" placeholder="1234 5678 9876 5432" class="form-control"
                   formControlName="cardNumber">
           </div>
           <div class="mt-2 row">
               <div class="col">
                   <label for="expiryMonth">Son Kullanım Ayı</label>
-                  <input type="number" id="expiryMonth" name="expiryMonth" placeholder="01" class="form-control" formControlName="expiryMonth">
+                  <input type="number" id="expiryMonth" name="expiryMonth" placeholder="09" class="form-control" formControlName="expiryMonth">
               </div>
               <div class="col">
                   <label for="expiryYear">Son Kullanım Yılı</label>
-                  <input type="number" id="expiryYear" name="expiryYear" placeholder="17" class="form-control" formControlName="expiryYear">
+                  <input type="number" id="expiryYear" name="expiryYear" placeholder="19" class="form-control" formControlName="expiryYear">
               </div>
           </div>
           <div class="mt-2">
               <label for="cvv">CVV</label>
               <input type="text" id="cvv" placeholder="123" class="form-control" formControlName="cvv">
           </div>
-
           <br>
           <div class="mt-2">
               <button class="btn btn-secondary" (click)="pay()">Ödemeyi Tamamla</button>

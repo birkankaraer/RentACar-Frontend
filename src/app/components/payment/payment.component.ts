@@ -43,13 +43,18 @@ export class PaymentComponent implements OnInit {
 
   pay(){
     if (this.payFormGroup.valid) {
+
+      this.toastrService.success("Ödeme başarılı","",{
+        progressBar:true
+      })
       let rent: Rental = this.localStorageService.get(RentKey)
       let payment: Payment = Object.assign({
+
         customerId: rent.customerId
       }, this.payFormGroup.value);
-
       this.askForSave(payment);
       this.rentService.payAndRent(payment, rent)
+
     }else this.toastrService.error(FormIsMissing)
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/car-detail';
 import { CarDetailService } from 'src/app/services/car-detail.service';
@@ -23,7 +24,9 @@ export class CarComponent implements OnInit {
  constructor(
   private carService:CarService,
   private cardetailService:CarDetailService,
-  private activatedRoute:ActivatedRoute
+  private activatedRoute:ActivatedRoute,
+  private toastrService:ToastrService
+
   ){}
 
  ngOnInit(): void {
@@ -73,6 +76,9 @@ getCarsByColor(colorId:number) {
 
 setCurrentCarDetails(cardetail:CarDetail){
   this.currentCarDetail = cardetail;
+  this.toastrService.info("Araç detay sayfasına yönlendirildiniz","",{
+    progressBar:true
+  })
 }
 
 getCurrentCarDetails(){

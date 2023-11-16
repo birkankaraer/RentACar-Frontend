@@ -6,6 +6,7 @@
       <th>Model</th>
       <th>Açıklama</th>
       <th>Toplam tutar</th>
+      <th></th>
     </tr>
   </thead>
   <tr *ngFor="let cartItem of cartItems">
@@ -30,6 +31,7 @@
     <td>{{cartItem.carDetail.carName}}</td>
     <td>{{cartItem.carDetail.description}}</td>
     <td>{{cartItem.totalamount | currency: "TRY":"₺":"4.2-2"}}</td>
+    <td><button (click)="removeFromCart(cartItem.carDetail)" type="button" class="btn btn-danger btn-sm">Sepetten sil</button><i class="bi bi-trash3-fill"></i></td>
   </tr>
 </table>
 
@@ -64,6 +66,7 @@
         <span class="d-flex flex-column float-end">
             <a
             routerLink="/pay"
+            (click)="gotopay()"
             class="btn btn-success">Sepeti Onayla</a>
         </span>
     </li>

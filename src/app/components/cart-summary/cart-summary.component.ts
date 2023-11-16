@@ -36,6 +36,9 @@ export class CartSummaryComponent implements OnInit {
 
   setCurrentCart(cartItems:CartItem){
     this.currentCart = cartItems;
+    this.toastrService.info("Sepetinize yönlendirildiniz","",{
+      progressBar:true
+    })
   }
 
 
