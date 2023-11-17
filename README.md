@@ -36,7 +36,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ![rentacaraddcart](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/60252b05-c9a5-41d1-a0f4-37eeb63ff1c5)
 ## Cart-summary
 ![rentacarcart](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/968841ab-b223-40fe-8904-13083eaba849)
-## Car-detail
+## Cart-detail
 ![rentacarcartdetails](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/75dfabd9-82cd-41ac-83ff-7343d4539cde)
 ## Payment
 ![rentacarpayment](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/72cb7caa-afc3-493c-85ae-9e9185f1bf78)
