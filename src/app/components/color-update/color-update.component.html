@@ -1,0 +1,38 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header"><h5 class="title">Renk güncelle</h5></div>
+      <div class="card-body">
+        <form [formGroup]="colorUpdateForm">
+          <div class="mb-3">
+            <label for="colorId">Renk Id</label>
+            <div class="form-group">
+              <input
+                type="number"
+                id="colorId"
+                formControlName="colorId"
+                class="form-control"
+                placeholder="Renk Id"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="colorName">Renk ismi</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="colorName"
+                formControlName="colorName"
+                class="form-control"
+                placeholder="Renk ismi"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-success" (click)="update()">Güncelle</button>
+      </div>
+    </div>
+  </div>
+</div>

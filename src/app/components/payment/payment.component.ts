@@ -55,6 +55,7 @@ export class PaymentComponent implements OnInit {
       this.askForSave(payment);
       this.rentService.payAndRent(payment, rent)
 
+
     }else this.toastrService.error(FormIsMissing)
   }
 

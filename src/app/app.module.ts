@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 
@@ -25,6 +25,12 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { PayWithSavedCardsComponent } from './components/pay-with-saved-cards/pay-with-saved-cards.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +50,13 @@ import { PayWithSavedCardsComponent } from './components/pay-with-saved-cards/pa
     CartSummaryComponent,
     CartDetailComponent,
     PaymentComponent,
-    PayWithSavedCardsComponent
+    PayWithSavedCardsComponent,
+    CarAddComponent,
+    BrandAddComponent,
+    ColorAddComponent,
+    BrandUpdateComponent,
+    ColorUpdateComponent,
+    CarUpdateComponent
   ],
   imports: [
     BrowserModule,
