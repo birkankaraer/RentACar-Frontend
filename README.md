@@ -47,7 +47,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Payment
 ![payment](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/fb8637a2-05ba-4090-a239-4afaa0256949)
 ## Admin-Cars-list
-![CarListComponent](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/a67240d5-c721-48a2-897b-4f4643dbafaf)
+![CarList2Component](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/a7612007-c2f9-450a-abbe-349bee783ac6)
 ## Admin-Brands-list
 ![BrandsComponent](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/a1a90626-35c9-415c-8ec6-2a7c6bb5710a)
 ## Admin-Colors-list
