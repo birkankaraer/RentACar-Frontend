@@ -5,6 +5,7 @@ import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/car-detail';
 import { CarDetailService } from 'src/app/services/car-detail.service';
 import { CarService } from 'src/app/services/car.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-car',
@@ -25,7 +26,8 @@ export class CarComponent implements OnInit {
   private carService:CarService,
   private cardetailService:CarDetailService,
   private activatedRoute:ActivatedRoute,
-  private toastrService:ToastrService
+  private toastrService:ToastrService,
+  private cartService:CartService
 
   ){}
 
@@ -89,6 +91,21 @@ getCarDetails(carId:number) {
   this.carService.getCarDetails(carId).subscribe(response=>{
     this.cardetails = response.data
   })
+}
+
+addToCart(carDetail:CarDetail){
+
+  if(carDetail.carId===15){
+    this.toastrService.error("Araç sepete eklenemedi", "Araç başkası tarafından kiralanmış durumda",{
+      progressBar:true
+    })
+  }else{
+    console.log(carDetail)
+    this.cartService.addToCart(carDetail);
+    this.toastrService.success("Araç sepete eklendi",carDetail.brandName+" "+carDetail.carName,{
+      progressBar:true
+    })
+  }
 }
 
 

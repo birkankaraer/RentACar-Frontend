@@ -1,99 +1,59 @@
 <div class="content">
   <div class="col-md-12">
-    <div class="card">
-      <div class="card-header"><h5 class="title">Araba güncelle</h5></div>
-      <div class="card-body">
-        <form [formGroup]="carUpdateForm">
-          <div class="mb-3">
-            <label for="carId">Araba Id</label>
-            <div class="form-group">
-              <input
-                type="number"
-                id="carId"
-                formControlName="carId"
-                class="form-control"
-                placeholder="Araba Id"
-              />
-            </div>
+      <div class="card">
+          <div class="card-header">
+              <h5 class="title text-center">Araba Güncelle</h5>
           </div>
-          <div class="mb-3">
-            <label for="brandId">Marka Id</label>
-            <div class="form-group">
-              <input
-                type="number"
-                id="brandId"
-                formControlName="brandId"
-                class="form-control"
-                placeholder="Marka Id"
-              />
-            </div>
+          <div class="card-body">
+              <form [formGroup]="carUpdateForm">
+                  <div class="mb-3" hidden>
+                      <label for="carId"><b>Araba Id</b></label>
+                      <input type="text" id="carId" formControlName="carId" class="form-control"
+                          [(ngModel)]="carUpdateForm.value.carId" />
+                  </div>
+                  <div class="mb-3">
+                      <label for="brandId">Marka</label>
+                      <div class="form-group">
+                          <select [(ngModel)]="carUpdateForm.value.brandId" id="brandId" class="form-select"
+                              aria-label="Marka Seçimi" formControlName="brandId">
+                              <option *ngFor="let brand of brands" [ngValue]="brand.brandId">{{brand.brandName}}</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="mb-3">
+                      <label for="colorId">Renk</label>
+                      <div class="form-group">
+                          <select [(ngModel)]="carUpdateForm.value.colorId" id="colorId" class="form-select"
+                              aria-label="Renk Seçimi" formControlName="colorId">
+                              <option *ngFor="let color of colors" [ngValue]="color.colorId">{{color.colorName}}</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="mb-3">
+                      <label for="description">Model</label>
+                      <div class="form-group">
+                          <input type="text" id="description" formControlName="description" class="form-control" />
+                      </div>
+                  </div>
+                  <div class="mb-3">
+                      <label for="modelYear">Model Yılı</label>
+                      <div class="form-group">
+                          <input type="number" id="modelYear" formControlName="modelYear" class="form-control"
+                              [(ngModel)]="carUpdateForm.value.modelYear" />
+                      </div>
+                  </div>
+                  <div class="mb-3">
+                      <label for="dailyPrice">Günlük Fiyat</label>
+                      <div class="form-group">
+                          <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" />
+                      </div>
+                  </div>
+              </form>
           </div>
-          <div class="mb-3">
-            <label for="colorId">Renk Id</label>
-            <div class="form-group">
-              <input
-                type="number"
-                id="colorId"
-                formControlName="colorId"
-                class="form-control"
-                placeholder="Renk Id"
-              />
-            </div>
+          <div class="card-footer">
+              <button class="btn btn-fill btn-info" (click)="backToCarList()">Geri Dön</button>
+              <button class="btn btn-fill btn-success" (click)="update()" style="float: right;">Güncelle</button>
           </div>
-          <div class="mb-3">
-            <label for="carName">Model ismi</label>
-            <div class="form-group">
-              <input
-                type="text"
-                id="carName"
-                formControlName="carName"
-                class="form-control"
-                placeholder="Model ismi"
-              />
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="modelYear">Model yılı</label>
-            <div class="form-group">
-              <input
-                type="number"
-                id="modelYear"
-                formControlName="modelYear"
-                class="form-control"
-                placeholder="Model yılı"
-              />
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="dailyPrice">Günlük ücreti</label>
-            <div class="form-group">
-              <input
-                type="number"
-                id="dailyPrice"
-                formControlName="dailyPrice"
-                class="form-control"
-                placeholder="Günlük ücreti"
-              />
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="description">Açıklaması</label>
-            <div class="form-group">
-              <input
-                type="text"
-                id="description"
-                formControlName="description"
-                class="form-control"
-                placeholder="Açıklması"
-              />
-            </div>
-          </div>
-        </form>
       </div>
-      <div class="card-footer">
-        <button class="btn btn-fill btn-success" (click)="update()">Güncelle</button>
-      </div>
-    </div>
   </div>
 </div>
-

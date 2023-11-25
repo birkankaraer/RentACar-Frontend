@@ -31,6 +31,12 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { CarDeleteComponent } from './components/car-delete/car-delete.component';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CarListComponent } from './components/car-list/car-list.component';
+import { BrandListComponent } from './components/brand-list/brand-list.component';
+import { ColorListComponent } from './components/color-list/color-list.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +62,13 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
     ColorAddComponent,
     BrandUpdateComponent,
     ColorUpdateComponent,
-    CarUpdateComponent
+    CarUpdateComponent,
+    CarDeleteComponent,
+    HomeComponent,
+    FooterComponent,
+    CarListComponent,
+    BrandListComponent,
+    ColorListComponent
   ],
   imports: [
     BrowserModule,

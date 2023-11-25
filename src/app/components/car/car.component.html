@@ -1,80 +1,98 @@
-<br />
-<div class="mb-3">
-  <input
-    type="text"
-    [(ngModel)]="filterText"
-    class="form-control"
-    id="filterText"
-    placeholder="Araç, marka, renk adı veya model yılı ile arayınız"
-  />
-</div>
-<div class="alert alert-primary" *ngIf="filterText.length > 1">
-  {{ filterText }} aradınız
-</div>
-<app-car-filter></app-car-filter>
-<div class="row mt-4" style="margin-left: 1%">
-  <div
-    *ngFor="let carDetail of cardetails | filterPipe : filterText"
-    class="card mt-2 mr-2"
-    style="width: 18rem; margin-right: 10px"
-  >
-    <img
-      *ngIf="carDetail.imagePath"
-      [src]="baseUrl + carDetail.imagePath"
-      class="card-img-top"
-      style="object-fit: cover"
-      width="100"
-      height="50%"
-    />
-
-    <img
-      *ngIf="!carDetail.imagePath"
-      src="/assets/defaultCar.jpg"
-      class="card-img-top"
-      style="object-fit: cover"
-      width="100"
-      height="50%"
-    />
-
-    <div class="card-body">
-      <h4 class="cart-title">
-        {{ carDetail.brandName + " " + carDetail.carName | uppercase }}
-      </h4>
+<div class="row">
+  <div class="col-md-2" >
+    <br>
+    <app-brand></app-brand>
+    <br>
+    <app-color></app-color>
+    <br>
+  </div>
+  <div class="col-md-10">
+    <div class="mb-3">
+      <input
+        type="text"
+        [(ngModel)]="filterText"
+        class="form-control"
+        id="filterText"
+        placeholder="Araç, marka, renk adı veya model yılı ile arayınız"
+      />
     </div>
+    <div class="alert alert-primary" *ngIf="filterText.length > 1">
+      {{ filterText }} aradınız
+    </div>
+    <app-car-filter></app-car-filter>
+    <div class="row mt-4" style="margin-left: 1%">
+      <div
+        *ngFor="let carDetail of cardetails | filterPipe : filterText"
+        class="card mt-2 mr-2"
+        style="width: 18rem; margin-right: 10px"
+      >
+        <img
+          *ngIf="carDetail.imagePath"
+          [src]="baseUrl + carDetail.imagePath"
+          class="card-img-top"
+          style="object-fit: cover"
+          width="100"
+          height="50%"
+        />
 
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <i><b>Marka | </b></i>{{ carDetail.brandName }}
-      </li>
-      <li class="list-group-item">
-        <i><b>Renk | </b></i>{{ carDetail.colorName }}
-      </li>
-      <li class="list-group-item">
-        <i><b>Günlük ücreti | </b></i
-        >{{ carDetail.dailyPrice | currency : "TRY" : "₺" : "4.2-2" }}
-      </li>
-      <li class="list-group-item">
-        <i><b>Kdv'li günlük ücreti | </b></i
-        >{{
-          carDetail.dailyPrice
-            | vatAdded : 10
-            | currency : "TRY" : "₺" : "4.2-2"
-        }}
-      </li>
-    </ul>
+        <img
+          *ngIf="!carDetail.imagePath"
+          src="/assets/defaultCar.jpg"
+          class="card-img-top"
+          style="object-fit: cover"
+          width="100"
+          height="50%"
+        />
 
-    <div class="card-body">
-      <div class="row">
-        <button
-          type="button"
-          class="btn btn-success"
-          (click)="setCurrentCarDetails(carDetail)"
-          routerLink="/cardetails/car/{{ carDetail.carId }}"
-          [class]="getCurrentCarDetails()"
-        >
-          Araç Detayı
-        </button>
+        <div class="card-body">
+          <h4 class="cart-title">
+            {{ carDetail.brandName + " " + carDetail.carName | uppercase }}
+          </h4>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <i><b>Marka | </b></i>{{ carDetail.brandName }}
+          </li>
+          <li class="list-group-item">
+            <i><b>Renk | </b></i>{{ carDetail.colorName }}
+          </li>
+          <li class="list-group-item">
+            <i><b>Günlük ücreti | </b></i
+            >{{ carDetail.dailyPrice | currency : "TRY" : "₺" : "4.2-2" }}
+          </li>
+          <li class="list-group-item">
+            <i><b>Kdv'li günlük ücreti | </b></i
+            >{{
+              carDetail.dailyPrice
+                | vatAdded : 10
+                | currency : "TRY" : "₺" : "4.2-2"
+            }}
+          </li>
+        </ul>
+        <div class="card-body">
+          <section style="float: top">
+            <button
+              (click)="setCurrentCarDetails(carDetail)"
+              routerLink="/cardetails/car/{{ carDetail.carId }}"
+              [class]="getCurrentCarDetails()"
+              type="button"
+              class="btn btn-outline-success"
+            >
+              Detaylar
+            </button>
+            <button
+              (click)="addToCart(carDetail)"
+              id="rentalButton"
+              type="button"
+              class="btn btn-outline-success"
+            >
+              Kirala
+            </button>
+          </section>
+        </div>
       </div>
     </div>
   </div>
 </div>
+

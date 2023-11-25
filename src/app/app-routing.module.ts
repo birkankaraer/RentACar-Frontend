@@ -10,26 +10,51 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { CarDeleteComponent } from './components/car-delete/car-delete.component';
+import { HomeComponent } from './components/home/home.component';
+import { CarListComponent } from './components/car-list/car-list.component';
+import { BrandListComponent } from './components/brand-list/brand-list.component';
+import { ColorListComponent } from './components/color-list/color-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: CarComponent },
+  { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: "home", component: HomeComponent},
+
   { path: 'cars', component: CarComponent },
   { path: 'cars/brand/:brandId', component: CarComponent },
   { path: 'cars/color/:colorId', component: CarComponent },
   { path: 'cardetails/car/:carId', component: CarDetailComponent },
   { path: 'cars/brand/:brandId/color/:colorId', component: CarComponent },
   { path: 'carDetail/cartItem/:carId', component: CartDetailComponent },
-  { path: 'pay', component: PaymentComponent },
 
   { path: "cars/add", component: CarAddComponent},
   { path: "cars/update", component: CarUpdateComponent},
+  { path: "cars/delete", component: CarDeleteComponent},
+
+  { path: "brand", component: BrandListComponent},
+  { path: "brand/add", component: BrandAddComponent},
+  { path: "brand/update", component: BrandUpdateComponent},
+  { path: 'brand/update/:brandId', component: BrandUpdateComponent },
+
+  { path: "color", component: ColorListComponent},
+  { path: "color/add", component: ColorAddComponent},
+  { path: "color/update", component: ColorUpdateComponent},
+  { path: "color/update/:colorId", component: ColorUpdateComponent},
+
+  { path: "car", component: CarListComponent},
+  { path: 'car/update/:carId', component: CarUpdateComponent },
+  { path: 'car/delete/:carId', component: CarDeleteComponent },
+  { path: 'car/add', component: CarAddComponent },
+
+  { path: 'pay', component: PaymentComponent },
 
 
-  { path: "brands/add", component: BrandAddComponent},
-  { path: "brands/update", component: BrandUpdateComponent},
 
-  { path: "colors/add", component: ColorAddComponent},
-  { path: "colors/update", component: ColorUpdateComponent},
+
+
+
+
+
 
 
 

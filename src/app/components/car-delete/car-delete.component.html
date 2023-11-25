@@ -1,0 +1,66 @@
+<div class="content">
+  <div class="col-md-12">
+      <div class="card">
+          <div class="card-header">
+              <h5 class="title text-center">Araba sil</h5>
+          </div>
+          <div class="card-body">
+              <form [formGroup]="carDeleteForm">
+                  <div class="mb-3">
+                      <label for="carId"><b>Araba Id</b></label>
+                      <input type="number" id="carId" formControlName="carId" class="form-control"
+                          [(ngModel)]="carDeleteForm.value.carId"/>
+                  </div>
+              </form>
+
+              <table class="table container">
+                  <thead>
+                      <tr>
+                          <th>Araba Id</th>
+                          <th>Model</th>
+                          <th>Marka</th>
+                          <th>Renk</th>
+                          <th>Model yılı</th>
+                          <th>Günlük fiyatı</th>
+                          <th>Araca ait resim</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let carDetail of carDetails">
+                          <td>{{carDetail.carId}}</td>
+                          <td>{{carDetail.carName}}</td>
+                          <td>{{carDetail.brandName}}</td>
+                          <td>{{carDetail.colorName}}</td>
+                          <td>{{carDetail.modelYear}}</td>
+                          <td>{{carDetail.dailyPrice}}</td>
+                          <td><img
+                            *ngIf="carDetail.imagePath"
+                            [src]="baseUrl + carDetail.imagePath"
+                            class="img-top"
+                            style="object-fit: cover"
+                            width="200"
+                            height="100%"
+                          />
+
+                          <img
+                            *ngIf="!carDetail.imagePath"
+                            src="/assets/defaultCar.jpg"
+                            class="img-top"
+                            style="object-fit: cover"
+                            width="200"
+                            height="100%"
+                          /></td>
+                      </tr>
+                  </tbody>
+
+              </table>
+
+          </div>
+          <div class="card-footer">
+              <button class="btn btn-fill btn-info" (click)="backToCarList()">Geri dön</button>
+              <button class="btn btn-fill btn-danger" style="float: right;" (click)="delete()" >Sil</button>
+
+          </div>
+      </div>
+  </div>
+</div>
