@@ -2,40 +2,40 @@
   <thead class="table-info">
       <tr>
           <th scope="col">Araç ID</th>
+          <th scope="col">Araç resmi</th>
           <th scope="col">Marka</th>
           <th scope="col">Model</th>
           <th scope="col">Renk</th>
           <th scope="col">Model yılı</th>
-          <th scope="col">Günlük fiyatı</th>
-          <th scope="col">Araç resmi</th>
+          <th scope="col">Günlük fiyat</th>
           <th scope="col"><button class="btn btn-success" click="routerLink" routerLink="add">Araç Ekle</button></th>
       </tr>
   </thead>
   <tbody>
       <tr *ngFor="let carDetail of carDetails">
           <th scope="row">{{carDetail.carId}}</th>
-          <td>{{carDetail.brandName}}</td>
-          <td>{{carDetail.carName}}</td>
-          <td>{{carDetail.colorName}} </td>
-          <td>{{carDetail.modelYear}}</td>
-          <td>{{carDetail.dailyPrice}}</td>
           <td><img
             *ngIf="carDetail.imagePath"
             [src]="baseUrl + carDetail.imagePath"
-            class="img-top"
+            class="icon"
             style="object-fit: cover"
-            width="200"
-            height="100%"
+            width="150"
+            height="75%"
           />
 
           <img
             *ngIf="!carDetail.imagePath"
             src="/assets/defaultCar.jpg"
-            class="img-top"
+            class="icon"
             style="object-fit: cover"
-            width="200"
-            height="100%"
+            width="150"
+            height="75%"
           /></td>
+          <td>{{carDetail.brandName}}</td>
+          <td>{{carDetail.carName}}</td>
+          <td>{{carDetail.colorName}} </td>
+          <td>{{carDetail.modelYear}}</td>
+          <td>{{carDetail.dailyPrice}}</td>
           <td>
               <button class="btn btn-warning" click="routerLink" routerLink="update/{{carDetail.carId}}"><i
                       class="fa fa-edit"></i> Düzenle</button>
