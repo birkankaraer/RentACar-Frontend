@@ -30,9 +30,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Home Page
 ![HomeComponent](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/f14df371-8e68-49fc-9fde-ca81a546b416)
 ## Login Page
-![loginpage](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/395713ab-bbe9-448a-ba30-e28294fc0a01)
+![2023-12-01 (1)](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/7b0d5758-6d37-4098-9a02-552d5594eec3)
 ## Register Page
-![registerpage](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/027d66a6-0dec-4f7e-9f6b-58d75e9837b1)
+![2023-12-01 (2)](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/b1e7bdd9-17db-4b96-a801-41ec29ae0a25)
 ## Cars Page
 ![CarsComponent](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/2445c4bd-1d68-4c08-9bb1-bb568a1845d9)
 ## Cars-filter
