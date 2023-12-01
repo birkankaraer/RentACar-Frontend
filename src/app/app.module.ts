@@ -37,6 +37,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { BrandListComponent } from './components/brand-list/brand-list.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { ColorListComponent } from './components/color-list/color-list.component
     FooterComponent,
     CarListComponent,
     BrandListComponent,
-    ColorListComponent
+    ColorListComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

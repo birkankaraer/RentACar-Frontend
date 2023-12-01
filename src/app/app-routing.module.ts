@@ -15,6 +15,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { BrandListComponent } from './components/brand-list/brand-list.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -47,6 +49,10 @@ const routes: Routes = [
   { path: 'car/add', component: CarAddComponent },
 
   { path: 'pay', component: PaymentComponent },
+
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+
 
 
 
