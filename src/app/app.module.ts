@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
@@ -39,6 +39,14 @@ import { BrandListComponent } from './components/brand-list/brand-list.component
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { DatePipe } from '@angular/common';
+import { LoginGuard } from './guards/login.guard';
+import { ContactComponent } from './components/contact/contact.component';
+import { ProfilComponent } from './components/profil/profil.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -72,7 +80,10 @@ import { RegisterComponent } from './components/register/register.component';
     BrandListComponent,
     ColorListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ContactComponent,
+    ProfilComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -86,7 +97,14 @@ import { RegisterComponent } from './components/register/register.component';
       progressAnimation:"decreasing"
     })
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
+    DatePipe,
+    LoginGuard
+  ],
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+
+
 })
 export class AppModule { }

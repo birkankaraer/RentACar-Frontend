@@ -34,6 +34,7 @@ export class CarAddComponent implements OnInit {
       modelYear: ['', Validators.required],
       description: ['', Validators.required],
       dailyPrice: ['', Validators.required],
+      minFindeksScore:["",Validators.required]
     });
   }
 

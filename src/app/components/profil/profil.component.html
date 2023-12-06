@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mt-4">
+        <div class="card-header"><h5 class="card-title">Üyelik Bilgileriniz</h5></div>
+        <div class="card-body">
+
+
+          <form [formGroup]="profileForm" >
+            <input type="hidden" id="id" formControlName="id"  [ngModel]="user.id" class="form-control" />
+
+            <div class="mb-3 row">
+              <label for="firstName" class="col-sm-2 col-form-label">Ad</label>
+              <div class="col-sm-10">
+                <input type="text " id="firstName" formControlName="firstName"  [ngModel]="user.firstName" class="form-control"
+                       placeholder="Adınız"/>
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="lastName" class="col-sm-2 col-form-label">Soyad</label>
+              <div class="col-sm-10">
+                <input type="text" id="lastName" formControlName="lastName"  [ngModel]="user.lastName"  class="form-control"
+                       placeholder="Soyadınız"/>
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="email" class="col-sm-2 col-form-label">E-Posta</label>
+              <div class="col-sm-10">
+                <input type="text" id="email" formControlName="email" class="form-control" [ngModel]="user.email"
+                       placeholder="E-Posta Adresiniz"/>
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="password"  class="col-sm-2 col-form-label">Şifreniz</label>
+                <div class="col-sm-10">
+                  <input type="password" id="password"  formControlName="password" class="form-control"
+                         placeholder="Şifreniz"/>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-outline-success" (click)="updateProfile()" >Güncelle</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card mt-4">
+      <div class="card-header"><h5 class="card-title">Şirket Bilgileriniz</h5></div>
+      <div >
+        <p-card>
+          <div class="row justify-content-center">
+            <form [formGroup]="customerForm">
+              <div id="companyName"class="p-field p-md-2 p-grid" >
+                <label for="companyName"  class="col-sm-3 col-form-label"> Şirket adınız</label>
+                <span class="p-float-label p-col-fixed">
+                  <div class="mb-3 row">
+                    <div class="col-sm-10">
+                    <input type="text" id="companyName"  formControlName="companyName" class="form-control"
+                    placeholder="Şirket Adınız"/>
+                  </div>
+                </div>
+                </span>
+              </div>
+
+              <div class="card-footer">
+                <button class="btn btn-outline-success" (click)="updateCustomer()" >Güncelle</button>
+              </div>
+
+            </form>
+
+          </div>
+        </p-card>
+      </div>
+    </div>
+    <div *ngIf="customer">
+      <p-card>
+        <div class="col-md-12">
+          <div class="card mt-2">
+            <div class="d-flex justify-content-center">
+                <span class="form-control">
+                  <label for="input-tel">Findeks Puanı</label>
+                    <input id="findeksScore"type="text" disabled [(ngModel)]="customer.findeksScore" id="disabled-findeks" pInputText>
+
+                </span>
+            </div>
+        </div>
+      </div>
+      </p-card>
+    </div>
+  </div>
+    </div>
+  </div>

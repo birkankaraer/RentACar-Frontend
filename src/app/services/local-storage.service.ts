@@ -1,10 +1,29 @@
 import { Injectable } from '@angular/core';
 
+export const LocalStorageKeys = {
+  USER: "user",
+  RENTAL_CAR: "rentalCar",
+  TOKEN: "token",
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
-  constructor() {}
+  localStorage:Storage;
+
+  constructor() {this.localStorage = window.localStorage;}
+
+  set(key: string, value: string){
+    this.localStorage.setItem(key,value);
+  }
+
+  clean(){
+    this.localStorage.clear();
+  }
+  getToken(){
+    return localStorage.getItem("token")
+  }
 
   save(key: string, value: any) {
     let json = JSON.stringify(value);
@@ -26,6 +45,9 @@ export class LocalStorageService {
       return null;
     }
   }
+  getkey(key : string){
+    return this.localStorage.getItem(key);
+  }
 
   getWithType<T>(key: string): T | null {
     let json = localStorage.getItem(key);
@@ -42,5 +64,16 @@ export class LocalStorageService {
 
   removeAll() {
     localStorage.clear();
+  }
+
+  contain(key:string):boolean {
+    if(localStorage.getItem(key)) {
+      return true
+    } else {
+      return false
+    }
+  }
+  GetUserId():number{
+    return Number.parseInt(this.get(LocalStorageKeys.USER))
   }
 }

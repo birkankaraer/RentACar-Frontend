@@ -21,7 +21,9 @@
                           <th>Marka</th>
                           <th>Renk</th>
                           <th>Model yılı</th>
+                          <th>Açıklama</th>
                           <th>Günlük fiyatı</th>
+                          <th>Findeks puanı</th>
                           <th>Araca ait resim</th>
                       </tr>
                   </thead>
@@ -32,7 +34,9 @@
                           <td>{{carDetail.brandName}}</td>
                           <td>{{carDetail.colorName}}</td>
                           <td>{{carDetail.modelYear}}</td>
+                          <td>{{carDetail.description}}</td>
                           <td>{{carDetail.dailyPrice}}</td>
+                          <td>{{carDetail.minFindeksScore}}</td>
                           <td><img
                             *ngIf="carDetail.imagePath"
                             [src]="baseUrl + carDetail.imagePath"

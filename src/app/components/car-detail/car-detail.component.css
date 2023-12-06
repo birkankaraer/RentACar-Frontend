@@ -1,0 +1,14 @@
+
+.card {
+  width: 900px;
+  height: 1000px;
+  overflow: hidden;
+  border-radius: 30px;
+  transition: box-shadow 0.3s ease; /* Hover geçişini yumuşatmak için geçiş efekti ekleyin */
+}
+
+.card:hover {
+  box-shadow: 0 20px 16px 0 rgba(0, 0, 0, 0.2);
+  /* İstediğiniz gölge efektini ekleyebilirsiniz */
+}
+

@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col-md-2" >
-    <br>
+  <div class="col-md-2">
+    <br />
     <app-brand></app-brand>
-    <br>
+    <br />
     <app-color></app-color>
-    <br>
+    <br />
   </div>
   <div class="col-md-10">
     <div class="mb-3">
@@ -44,30 +44,25 @@
           height="50%"
         />
 
-        <div class="card-body">
-          <h4 class="cart-title">
-            {{ carDetail.brandName + " " + carDetail.carName | uppercase }}
-          </h4>
-        </div>
-
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <i><b>Marka | </b></i>{{ carDetail.brandName }}
           </li>
           <li class="list-group-item">
+            <i><b>Model | </b></i>{{ carDetail.carName }}
+          </li>
+          <li class="list-group-item">
             <i><b>Renk | </b></i>{{ carDetail.colorName }}
+          </li>
+          <li class="list-group-item">
+            <i><b>Model yılı | </b></i>{{ carDetail.modelYear }}
           </li>
           <li class="list-group-item">
             <i><b>Günlük ücreti | </b></i
             >{{ carDetail.dailyPrice | currency : "TRY" : "₺" : "4.2-2" }}
           </li>
           <li class="list-group-item">
-            <i><b>Kdv'li günlük ücreti | </b></i
-            >{{
-              carDetail.dailyPrice
-                | vatAdded : 10
-                | currency : "TRY" : "₺" : "4.2-2"
-            }}
+            <i><b>Findeks puanı | </b></i>{{ carDetail.minFindeksScore }}
           </li>
         </ul>
         <div class="card-body">
@@ -95,4 +90,3 @@
     </div>
   </div>
 </div>
-

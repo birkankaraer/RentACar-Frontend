@@ -1,14 +1,17 @@
-.navbar{
+.navbar {
   padding: 10px 20px;
   font-size: 18px;
 }
-/* .text-white {
-  color: rgb(228, 220, 220)!important;
+
+.text-white {
+  color: rgb(228, 220, 220) !important;
 }
-button{
-  background-color: #12a661;
-  border-color: #084e2d;
+
+button {
+  background-color: #776a6a;
+  border-color: #000000;
 }
-#login{
+
+#login {
   margin-right: 10px;
-} */
+}

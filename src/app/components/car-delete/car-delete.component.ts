@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/car-detail';
 import { CarService } from 'src/app/services/car.service';
 
@@ -17,6 +18,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarDeleteComponent implements OnInit {
   carDeleteForm: FormGroup;
+  car:Car[]=[];
   carDetails: CarDetail[] = [];
   baseUrl="https://localhost:44329/uploads/images/";
 
@@ -46,6 +48,7 @@ export class CarDeleteComponent implements OnInit {
       modelYear: ['', Validators.required],
       dailyPrice: ['', Validators.required],
       description: ['', Validators.required],
+      minFindeksScore:["",Validators.required]
     });
   }
 

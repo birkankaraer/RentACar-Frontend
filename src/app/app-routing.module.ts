@@ -17,6 +17,9 @@ import { BrandListComponent } from './components/brand-list/brand-list.component
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LoginGuard } from './guards/login.guard';
+import { ContactComponent } from './components/contact/contact.component';
+import { ProfilComponent } from './components/profil/profil.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -33,25 +36,34 @@ const routes: Routes = [
   { path: "cars/update", component: CarUpdateComponent},
   { path: "cars/delete", component: CarDeleteComponent},
 
-  { path: "brand", component: BrandListComponent},
+  { path: "brand", component: BrandListComponent,canActivate:[LoginGuard]},
   { path: "brand/add", component: BrandAddComponent},
   { path: "brand/update", component: BrandUpdateComponent},
   { path: 'brand/update/:brandId', component: BrandUpdateComponent },
 
-  { path: "color", component: ColorListComponent},
+  { path: "color", component: ColorListComponent,canActivate:[LoginGuard]},
   { path: "color/add", component: ColorAddComponent},
   { path: "color/update", component: ColorUpdateComponent},
   { path: "color/update/:colorId", component: ColorUpdateComponent},
 
-  { path: "car", component: CarListComponent},
+  { path: "car", component: CarListComponent, canActivate:[LoginGuard]},
   { path: 'car/update/:carId', component: CarUpdateComponent },
   { path: 'car/delete/:carId', component: CarDeleteComponent },
-  { path: 'car/add', component: CarAddComponent },
+  { path: 'car/add', component: CarAddComponent,canActivate:[LoginGuard] },
 
-  { path: 'pay', component: PaymentComponent },
+  { path: 'pay', component: PaymentComponent,canActivate:[LoginGuard] },
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+
+  {path : "cart", component:CartDetailComponent},
+
+  {path: "contact", component:ContactComponent},
+
+  {path: "profil", component:ProfilComponent}
+
+
+
 
 
 

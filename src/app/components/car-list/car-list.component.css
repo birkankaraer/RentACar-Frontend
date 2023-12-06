@@ -1,0 +1,22 @@
+.aracEklemeButonu,
+.markaEklemeButonu,
+.renkEklemeButonu {
+  float: left;
+  background-color: #FF8C00;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px; /* İstediğin kadar ayarlayabilirsin */
+}
+
+.markaEklemeButonu {
+  margin-left: 5px;
+}
+
+.renkEklemeButonu {
+  margin-left: 5px;
+}

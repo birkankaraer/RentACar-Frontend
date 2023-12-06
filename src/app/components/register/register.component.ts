@@ -6,6 +6,7 @@ import {
   Validators,
   Form,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -17,7 +18,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private authService:AuthService, private toastrService:ToastrService){}
+  constructor(private formBuilder:FormBuilder, private authService:AuthService, private toastrService:ToastrService, private router:Router){}
 
   ngOnInit(): void {
     this.createRegisterForm();
@@ -38,9 +39,10 @@ export class RegisterComponent implements OnInit {
       console.log(this.registerForm.value);
       let registerModel = Object.assign({},this.registerForm.value);
       this.authService.register(registerModel).subscribe(response=>{
-        this.toastrService.success("Kayıt olundu", "Başarılı",{
+        this.toastrService.success("Giriş sayfasına yönlendiriliyorsunuz...", "Kayıt olundu",{
           progressBar:true
         })
+        this.router.navigate(['/login']);
         localStorage.setItem("token",response.data.token);
       },responseError=>this.toastrService.error(responseError.error,"Hata",{
         progressBar:true
