@@ -40,6 +40,7 @@ This project is the frontend part of <a href="https://github.com/birkankaraer/Re
 ![2023-12-01 (2)](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/b1e7bdd9-17db-4b96-a801-41ec29ae0a25)
 ## Cars Page
 ![cars-page](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/2ef62a61-1b1e-4b9e-982f-ccca0cade18c)
+![carspage](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/a93cbaa9-9a34-40fb-a5ed-655c90b39d99)
 ## Car-filter
 ![rentacarhomefilter](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/ca18dfa3-15e8-4c4c-a3b5-330c1913a805)
 ![CarsFilterComponent](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/c3324f4f-65df-479e-b625-8cdd90196a84)
