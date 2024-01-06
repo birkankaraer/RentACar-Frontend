@@ -51,7 +51,7 @@ This project is the frontend part of <a href="https://github.com/birkankaraer/Re
 ## Cart-summary
 ![cartSummary-service](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/f9e55cd9-5893-4374-9aca-11cf4ba3c31b)
 ## Cart-detail Page
-![cart-page](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/ac27dbed-542c-48a2-b6be-741e162aa3d7)
+![audirent](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/97ad6caa-3be5-4879-95a3-d47d7778b5f0)
 ## Payment Page
 ![rentacarpayment](https://github.com/birkankaraer/RentACar-Frontend/assets/139279313/72cb7caa-afc3-493c-85ae-9e9185f1bf78)
 ## Payment
